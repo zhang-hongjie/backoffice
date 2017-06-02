@@ -1,0 +1,22 @@
+language: java
+sudo: false
+services:
+  - postgresql
+addons:
+  postgresql: "9.4"
+jdk:
+  - oraclejdk8
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - front/node_modules
+before_install:
+  - nvm install $(cat $TRAVIS_BUILD_DIR/front/.nvmrc) &> /dev/null
+before_script:
+  - psql -U postgres -c "create user backoffice with superuser;"
+  - psql -U postgres -c "alter user backoffice with password 'backoffice';"
+  - psql -U postgres -c "create database backoffice owner backoffice;"
+script:
+  - npm set progress=false
+  - cd $TRAVIS_BUILD_DIR/front && npm run ci
+  - cd $TRAVIS_BUILD_DIR/back && mvn clean test -Dmaven.javadoc.skip=true -Dspring.profiles.active=dev -B

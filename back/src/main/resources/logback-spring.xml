@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <property scope="context" name="compName" value="backoffice" />
+    <property scope="context" name="compInstance" value="1" />
+    <property scope="context" name="logDirectory" value="/var/log/backoffice" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d %-5level [%thread] %logger : %msg %n</Pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logDirectory}/${compName}_${compInstance}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${logDirectory}/archive/${compName}_${compInstance}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>TRACE</level>
+        </filter>
+        <!-- encoder for logstash -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder" >
+            <includeCallerData>true</includeCallerData>
+        </encoder>
+    </appender>
+
+    <logger name="fr.zhj2074.backoffice" level="DEBUG" />
+
+    <root level="warn">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

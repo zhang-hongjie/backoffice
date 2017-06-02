@@ -1,0 +1,3 @@
+<div class='notifications'>
+    <div (click)='close(note)' class='{{ note.type }}' *ngFor='let note of notes'>{{ note.message }}</div>
+</div>

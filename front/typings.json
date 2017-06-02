@@ -1,0 +1,10 @@
+{
+    "globalDevDependencies": {
+        "jasmine": "registry:dt/jasmine#2.2.0+20160505161446"
+    },
+    "globalDependencies": {
+        "core-js": "registry:dt/core-js#0.0.0+20160317120654",
+        "filesaver": "registry:dt/filesaver#0.0.0+20160622185141",
+        "node": "registry:env/node#6.0.0+20160723033700"
+    }
+}

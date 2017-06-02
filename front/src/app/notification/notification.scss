@@ -1,0 +1,44 @@
+@import '../vars';
+
+.notifications {
+
+    div {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: $notificationzindex;
+        width: 100%;
+        min-height: 4em;
+        padding: 1em;
+
+        border: 1px solid;
+        border-radius: 4px;
+        box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .22), 0 17px 20px 0 rgba(0, 0, 0, .12);
+        cursor: pointer;
+        font-weight: bold;
+
+        &.success {
+            background-color: #dff2bf;
+            border-color: darken(#dff2bf, 30%);
+            color: darken(#dff2bf, 60%);
+        }
+
+        &.error {
+            background-color: #ffbaba;
+            border-color: darken(#ffbaba, 10%);
+            color: darken(#ffbaba, 60%);
+        }
+
+        &.warn {
+            background-color: #feefb3;
+            border-color: darken(#feefb3, 30%);
+            color: darken(#feefb3, 57%);
+        }
+
+        &.info {
+            background-color: #bde5f8;
+            border-color: darken(#bde5f8, 30%);
+            color: darken(#bde5f8, 50%);
+        }
+    }
+}

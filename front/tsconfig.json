@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noEmitHelpers": true,
+        "noImplicitAny": true,
+        "outDir": "tmp",
+        "pretty": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "target": "ES5"
+    },
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}

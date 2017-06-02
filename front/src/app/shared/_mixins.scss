@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+@mixin transition($string: $transition--default) {
+    -webkit-transition: $string;
+    -moz-transition: $string;
+    -o-transition: $string;
+    transition: $string;
+}
+
+%modal {
+    background: rgba(0, 0, 0, .8);
+    padding: 3px 8px;
+    display: inline-block;
+    overflow-y: auto;
+    @include transition(background .25s ease-in-out);
+}

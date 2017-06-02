@@ -1,0 +1,42 @@
+<backoffice-notification></backoffice-notification>
+<nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+    <div class="navbar-brand navbar-toggle col-sm-4">
+        <div class="dropdown open">
+            <div class="dropdown-menu" [hidden]="!showMenu">
+                <a
+                    class="dropdown-item"
+                    *ngFor="let menuLink of getMenuLinks()"
+                    (click)="showMenu=false"
+                    [routerLink]="[menuLink.link]">
+                        {{ menuLink.label }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <ul class="nav navbar-nav pull-xs-right">
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/users']">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                Accueil
+            </a>
+        </li>
+        <!--
+        will be renabled when fully developed
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/users/']">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span>Utilisateurs</span>
+            </a>
+        </li>
+        -->
+        <li class="nav-item active">
+            <a href class="nav-link" (click)="logout()">
+                <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                Déconnexion
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>

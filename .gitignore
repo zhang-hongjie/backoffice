@@ -1,0 +1,16 @@
+.idea/
+*.iml
+npm-debug.log
+
+/front/coverage/
+/front/doc
+/front/dist
+/front/node_modules/
+/front/tsd_typings/
+/front/typings/
+/front/src/**/*.js
+/front/src/**/*.map
+/front/tmp
+/front/reports
+
+/back/target

@@ -1,0 +1,67 @@
+// Utiliser cette CSS UNIQUEMENT pour overrider le style des plugins EXTERNES
+// à backoffice. Exemples :
+// - pagination
+// - accordion
+// Pour les composants ou plugins utilisés dans les composants internes de backoffice,
+// utiliser le style defini DANS le composant.
+
+@import './../app/vars';
+
+body {
+    ul.pagination {
+        li.page-item.active {
+            a.page-link {
+                background-color: $grey;
+                border-color: $grey;
+            }
+        }
+    }
+
+    ul.nav.nav-tabs {
+        border-bottom: 2px solid grey;
+        > li.nav-item {
+            a.nav-link {
+                background-color: $grey;
+                color: white;
+                &.active {
+                    background-color: lighten($grey, 20%);
+                    border-color: lighten($grey, 30%);
+                    color: white;
+                }
+            }
+        }
+    }
+    .card-holder {
+        > ngb-accordion {
+
+            > .card {
+
+                > .card-header {
+                    background-color: $grey;
+                    height: 35px;
+                    padding: 5px 15px;
+                    > a {
+                        color: white;
+                    }
+                }
+                > .card-block {
+                    padding: 0;
+
+                    .card {
+                        border: 0;
+
+                        .card-header.card-header-all {
+                            background-color: lighten($grey, 30%);
+                            height: 35px;
+                            padding: 5px 15px;
+                            a {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

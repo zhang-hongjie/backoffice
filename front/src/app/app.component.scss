@@ -1,0 +1,38 @@
+@import 'compass';
+
+nav.navbar {
+    height: 60px;
+    @include border-radius(0);
+
+    div.navbar-toggle {
+
+        div.dropdown {
+
+            a.dropdown-toggle {
+                display: block;
+                cursor: pointer;
+                white-space: nowrap;
+                max-width: 400px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                &:before {
+                    font-family: 'Glyphicons Halflings';
+                    font-style: normal;
+                    font-weight: normal;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: .6em;
+                    content: '\e114';
+                }
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+div.container-fluid {
+    padding-top: 80px;
+}
